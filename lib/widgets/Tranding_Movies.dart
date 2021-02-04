@@ -17,7 +17,7 @@ class _TrandingMoviesState extends State<TrandingMovies> {
             "Trending Movies ",
             style: Theme.of(context).textTheme.headline6,
           ),
-          MoviesList(),
+          // MoviesList(),
         ],
       ),
     );

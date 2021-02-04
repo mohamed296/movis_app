@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movis_app/providers/genres_provider.dart';
+import 'package:movis_app/widgets/movies_list.dart';
+import 'package:provider/provider.dart';
 
 class MoviesByGenre extends StatefulWidget {
   @override
@@ -11,7 +14,10 @@ class _MoviesByGenreState extends State<MoviesByGenre>
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: null, vsync: this);
+    controller = TabController(
+        length:
+            Provider.of<GenresProvider>(context, listen: false).genres.length,
+        vsync: this);
   }
 
   @override
@@ -31,13 +37,19 @@ class _MoviesByGenreState extends State<MoviesByGenre>
           bottom: TabBar(
             isScrollable: true,
             controller: controller,
-            tabs: [],
+            tabs: Provider.of<GenresProvider>(context).genres.map((genre) {
+              return Tab(
+                text: genre.name,
+              );
+            }).toList(),
           ),
         ),
         body: TabBarView(
           physics: NeverScrollableScrollPhysics(),
           controller: controller,
-          children: [],
+          children: Provider.of<GenresProvider>(context).genres.map((genre) {
+            return MoviesList.byGenre(genre.id);
+          }).toList(),
         ),
       ),
     );

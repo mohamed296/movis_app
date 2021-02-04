@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movis_app/providers/movies_providers.dart';
 import 'package:page_indicator/page_indicator.dart';
+import 'package:provider/provider.dart';
 
 class NowPlaying extends StatefulWidget {
   @override
@@ -30,7 +32,9 @@ class _NowPlayingState extends State<NowPlaying> {
                   height: height,
                   width: width,
                   child: Image.network(
-                    '',
+                    Provider.of<MoviesProviders>(context)
+                        .nowPlaying[index]
+                        .backposterurl,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -67,7 +71,9 @@ class _NowPlayingState extends State<NowPlaying> {
                   bottom: 50,
                   left: 10,
                   child: Text(
-                    "mohamed",
+                    Provider.of<MoviesProviders>(context)
+                        .nowPlaying[index]
+                        .title,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
