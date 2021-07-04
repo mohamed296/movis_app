@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movis_app/widgets/movies_list.dart';
 
 class TrandingMovies extends StatefulWidget {
   @override

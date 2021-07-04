@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movis_app/providers/genres_provider.dart';
 import 'package:movis_app/providers/movies_providers.dart';
-import 'package:movis_app/widgets/Tranding_Movies.dart';
 import 'package:movis_app/widgets/movies_by_genre.dart';
 import 'package:movis_app/widgets/now_playing.dart';
-import 'package:movis_app/widgets/tranding_persond.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movis_app/helpers/constant.dart';
 import 'package:movis_app/providers/genres_provider.dart';
 import 'package:movis_app/providers/movies_providers.dart';
-import 'package:movis_app/screens/HomeScreen.dart';
+import 'package:movis_app/providers/user_provider.dart';
+import 'package:movis_app/screens/authentication_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => GenresProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Moovies',
@@ -36,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: HomeScreen(),
+        home: AuthenticationScreen(),
       ),
     );
   }
